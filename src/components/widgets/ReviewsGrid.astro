@@ -32,15 +32,21 @@ function getSourceIcon(source: string): string {
   if (source.toLowerCase() === 'trustpilot') return 'tabler:star';
   return 'tabler:star';
 }
+
+// Generate unique ID for each review
+function getReviewId(index: number, name: string): string {
+  return `review-${index}-${name.toLowerCase().replace(/\s+/g, '-')}`;
+}
 ---
 
 <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
   {
-    reviews.map((review) => {
+    reviews.map((review, index) => {
       const text = language === 'es' ? review.text_es : review.text_en;
       const isImageAvatar = review.avatar.startsWith('http');
       const avatarColor = getAvatarColor(review.avatar);
       const initials = getInitials(review.name);
+      const reviewId = getReviewId(index, review.name);
 
       return (
         <div class="flex flex-col p-6 bg-white dark:bg-slate-900 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -77,7 +83,23 @@ function getSourceIcon(source: string): string {
           </div>
 
           {/* Review Text */}
-          <p class="text-gray-700 dark:text-gray-300 flex-1 mb-4 line-clamp-6">{text}</p>
+          <div class="flex-1 mb-4">
+            <p 
+              id={`${reviewId}-text`}
+              class="review-text text-gray-700 dark:text-gray-300 line-clamp-6"
+              data-full-text={text}
+            >
+              {text}
+            </p>
+            <button
+              id={`${reviewId}-toggle`}
+              class="review-toggle hidden mt-2 text-sm text-primary hover:text-secondary transition-colors font-medium cursor-pointer focus:outline-none rounded"
+              data-review-id={reviewId}
+              aria-label={language === 'es' ? 'Expandir o contraer reseña' : 'Expand or collapse review'}
+            >
+              {language === 'es' ? 'Leer más' : 'Read more'}
+            </button>
+          </div>
 
           {/* Footer with Source and Link */}
           <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
@@ -107,5 +129,50 @@ function getSourceIcon(source: string): string {
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  .review-text.expanded {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+  }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const reviewTexts = document.querySelectorAll('.review-text');
+
+    reviewTexts.forEach((textElement) => {
+      const reviewId = textElement.id.replace('-text', '');
+      const toggleButton = document.getElementById(`${reviewId}-toggle`);
+      
+      if (!toggleButton) return;
+
+      // Determine language from button's initial text
+      const initialButtonText = toggleButton.textContent?.trim() || '';
+      const isSpanish = initialButtonText === 'Leer más';
+      const readMoreText = isSpanish 
+        ? { more: 'Leer más', less: 'Leer menos' }
+        : { more: 'Read more', less: 'Read less' };
+
+      // Check if text is actually truncated
+      const isTruncated = textElement.scrollHeight > textElement.clientHeight;
+      
+      if (isTruncated) {
+        toggleButton.classList.remove('hidden');
+        
+        toggleButton.addEventListener('click', () => {
+          const isExpanded = textElement.classList.contains('expanded');
+          
+          if (isExpanded) {
+            textElement.classList.remove('expanded');
+            toggleButton.textContent = readMoreText.more;
+          } else {
+            textElement.classList.add('expanded');
+            toggleButton.textContent = readMoreText.less;
+          }
+        });
+      }
+    });
+  });
+</script>
 

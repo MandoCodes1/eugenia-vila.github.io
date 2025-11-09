@@ -1,6 +1,6 @@
 Here is the plain text conversion of the file, with the reviews excluded:
 
-EUGENIA VILA GARCIA
+EUGENIA VILA
 
 Highly qualified Dentist with over 30 years of clinical experience.
 Master's in Dental Implants from UIC Barcelona and a Master's in Aesthetics from the University of Córdoba, with a special interest in Oral Surgery and Aligner Treatment.
@@ -9,7 +9,7 @@ I also appreciate working in a team-oriented environment that shares the same va
 
 ## PERSONAL DETAILS
 
-Name: Eugenia Vila Garcia
+Name: Eugenia Vila
 Address: London, United Kingdom
 Phone number: +44 7309281723
 Email: eugeniavila63@gmail.com

@@ -160,6 +160,10 @@ export interface Testimonial {
   name?: string;
   job?: string;
   image?: string | unknown;
+  rating?: number;
+  date?: string;
+  source?: string;
+  link?: string;
 }
 
 export interface Input {
@@ -237,6 +241,7 @@ export interface Pricing extends Omit<Headline, "classes">, Widget {
 export interface Testimonials extends Omit<Headline, "classes">, Widget {
   testimonials?: Array<Testimonial>;
   callToAction?: CallToAction;
+  language?: 'es' | 'en';
 }
 
 export interface Brands extends Omit<Headline, "classes">, Widget {

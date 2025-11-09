@@ -2,15 +2,15 @@
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
-import Content from '~/components/widgets/Content.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getFeaturedReviews } from '~/utils/reviews';
+import wideRoom from '~/assets/images/wide_treatment_room.jpg';
 
 const metadata = {
   title: 'Dra. Eugenia Vila - Clínica Dental en Málaga',
-  description: 'Clínica dental en El Palo, Málaga. Más de 30 años de experiencia en implantes dentales, cirugía oral, alineadores y odontología estética. Dentista galardonada con materiales de alta calidad y precios competitivos.',
+  description: 'Clínica dental en El Palo, Málaga. Más de 30 años de experiencia en implantes dentales, cirugía oral, alineadores y odontología estética. Premiada Dentista del Año por Dental Art Implant Clinics (Londres, Reino Unido).',
   ignoreTitleTemplate: true,
 };
 
@@ -24,6 +24,9 @@ const testimonials = featuredReviews.map(review => ({
     alt: review.name,
   },
   rating: review.rating,
+  date: review.date,
+  source: review.source,
+  link: review.link,
 }));
 ---
 
@@ -40,7 +43,7 @@ const testimonials = featuredReviews.map(review => ({
       },
       { text: 'Más Información', href: '#sobre-mi' },
     ]}
-    image={{ src: 'https://placehold.co/800x1000/3b82f6/ffffff?text=Dra.+Eugenia+Vila', alt: 'Dra. Eugenia Vila' }}
+    image={{ src: wideRoom, alt: 'Sala de tratamiento de Dra. Eugenia Vila' }}
   >
     <Fragment slot="title">
       <span class="text-accent dark:text-white">Sonrisas Perfectas</span> con Más de
@@ -49,60 +52,16 @@ const testimonials = featuredReviews.map(review => ({
 
     <Fragment slot="subtitle">
       <span class="block mb-2">
+        Premiada <span class="font-bold">Dentista del Año</span> por Dental Art Implant Clinics (Londres, Reino Unido)
+      </span>
+      <span class="block mb-2">
         Especialista en <span class="font-semibold">implantes dentales, alineadores y odontología estética</span>.
       </span>
       <span class="block">
-        Dentista galardonada con materiales de alta calidad y precios competitivos. Clínica dental en El Palo, Málaga.
+        Clínica dental en El Palo, Málaga.
       </span>
     </Fragment>
   </Hero>
-
-  <!-- About Section -->
-  <Content
-    id="sobre-mi"
-    tagline="Sobre la Dra. Vila"
-    title="Experiencia, Calidad y Dedicación"
-    items={[
-      {
-        title: 'Más de 30 Años de Experiencia',
-        description:
-          'Con más de tres décadas de práctica clínica, he tratado a más de 20,000 pacientes con dedicación y cuidado personalizado.',
-      },
-      {
-        title: 'Formación de Élite',
-        description:
-          'Máster en Implantología Dental (UIC Barcelona) y Máster en Estética (Universidad de Córdoba). Licenciada en Medicina y Odontología.',
-      },
-      {
-        title: 'Dentista del Año 2024',
-        description:
-          'Galardonada por Dental Art Implant Clinic por resultados clínicos excepcionales y satisfacción del paciente.',
-      },
-      {
-        title: 'Enfoque Holístico',
-        description:
-          'Mi formación en medicina me permite ofrecer un enfoque integral del cuidado dental, siempre poniendo los intereses del paciente primero.',
-      },
-    ]}
-    image={{
-      src: 'https://placehold.co/600x800/6366f1/ffffff?text=Professional+Photo',
-      alt: 'Dra. Eugenia Vila en su clínica',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Una Dentista que Realmente se Preocupa
-      </h3>
-      <p class="text-lg text-muted mb-4">
-        Con licenciaturas tanto en Medicina como en Odontología, ofrezco un enfoque holístico y personalizado para cada
-        paciente. Mi pasión es crear sonrisas hermosas y saludables que duren toda la vida.
-      </p>
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
 
   <!-- Services Preview -->
   <Features
@@ -146,8 +105,8 @@ const testimonials = featuredReviews.map(review => ({
   <Stats
     stats={[
       { title: 'Años de Experiencia', amount: '30+' },
-      { title: 'Pacientes Tratados', amount: '20,000+' },
-      { title: 'Implantes Colocados', amount: 'Miles' },
+      { title: 'Pacientes Satisfechos', amount: '20,000+' },
+      { title: 'Implantes Colocados', amount: '3,000+' },
       { title: 'Reseñas 5 Estrellas', amount: '60+' },
     ]}
   />
@@ -157,6 +116,7 @@ const testimonials = featuredReviews.map(review => ({
     title="Lo Que Dicen Nuestros Pacientes"
     subtitle="Más de 60 reseñas de 5 estrellas en Google y Trustpilot"
     testimonials={testimonials}
+    language="es"
     callToAction={{
       text: 'Ver Todas las Reseñas',
       href: '/resenas',

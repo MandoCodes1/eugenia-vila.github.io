@@ -147,7 +147,7 @@ Modify `src/pages/servicios.astro` and `src/pages/en/services.astro`
 
 ## 👩‍⚕️ About Dr. Eugenia Vila
 
-Dr. Eugenia Vila García is a highly qualified dentist with over 30 years of clinical experience:
+Dr. Eugenia Vila is a highly qualified dentist with over 30 years of clinical experience:
 
 - Master's in Dental Implants (UIC Barcelona)
 - Master's in Aesthetic Medicine (University of Córdoba)

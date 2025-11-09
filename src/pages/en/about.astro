@@ -1,10 +1,10 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Hero2 from '~/components/widgets/Hero2.astro';
-import Content from '~/components/widgets/Content.astro';
 import Timeline from '~/components/ui/Timeline.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import fullBody from '~/assets/images/full_body.jpg';
 
 const metadata = {
   title: 'About - Dr. Eugenia Vila',
@@ -16,55 +16,10 @@ const metadata = {
   <!-- Hero -->
   <Hero2
     tagline="About Me"
-    title="Dr. Eugenia Vila García"
+    title="Dr. Eugenia Vila"
     subtitle="Highly qualified Dentist with over 30 years of clinical experience. Master's in Dental Implants from UIC Barcelona and a Master's in Aesthetics from the University of Córdoba, with a special interest in Oral Surgery and Aligner Treatment."
-    image={{ src: 'https://placehold.co/800x1000/3b82f6/ffffff?text=Dr.+Eugenia+Vila', alt: 'Dr. Eugenia Vila' }}
+    image={{ src: fullBody, alt: 'Dr. Eugenia Vila' }}
   />
-
-  <!-- Professional Overview -->
-  <Content
-    isReversed
-    items={[
-      {
-        title: 'Dual Degrees in Medicine and Dentistry',
-        description:
-          'Holding degrees in both Medicine and Dentistry allows me to provide a holistic approach to treating all my patients.',
-      },
-      {
-        title: 'Specialized Training',
-        description:
-          'Master\'s in Implantology from UIC Barcelona and Master\'s in Aesthetic Medicine from the University of Córdoba. Continuous training in advanced surgery and aligners.',
-      },
-      {
-        title: 'Dentist of the Year 2024',
-        description:
-          'Awarded by Dental Art Implant Clinic for exceptional clinical outcomes and patient satisfaction.',
-      },
-      {
-        title: 'Over 20,000 Patients Treated',
-        description:
-          'With 30 years of practice, I have had the privilege of treating over 20,000 patients and performing thousands of dental implants.',
-      },
-    ]}
-    image={{
-      src: 'https://placehold.co/600x800/6366f1/ffffff?text=Professional+Experience',
-      alt: 'Dr. Eugenia Vila at her clinic',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        A Holistic Approach to Dental Care
-      </h3>
-      <p class="text-muted">
-        My dual training in Medicine and Dentistry provides me with a unique perspective in dental care. I enjoy working
-        in a team-oriented environment that shares the same values as me: always putting the patient's interests first.
-      </p>
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
 
   <!-- Education Timeline -->
   <section class="px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:px-8">

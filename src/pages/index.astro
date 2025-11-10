@@ -36,29 +36,34 @@ const testimonials = featuredReviews.map(review => ({
     actions={[
       {
         variant: 'primary',
-        text: 'Reservar Cita por WhatsApp',
+        text: 'WhatsApp',
         href: 'https://wa.me/34679975580?text=Hola,%20me%20gustaría%20reservar%20una%20cita',
         target: '_blank',
         icon: 'tabler:brand-whatsapp',
       },
-      { text: 'Más Información', href: '#sobre-mi' },
+      {
+        text: 'Ubicación',
+        href: 'https://www.google.com/maps/place/Clinica+Dental+Dra.+Eugenia+Vila/@36.7212568,-4.3611691,16z/data=!3m1!4b1!4m6!3m5!1s0xd7259d6897597c3:0x48544afb3aaf06a4!8m2!3d36.7212568!4d-4.3611691!16s%2Fg%2F11xnngghh?entry=tts&g_ep=EgoyMDI1MTEwNC4xIPu8ASoASAFQAw%3D%3D&skid=c1c51f43-632e-4bfc-bcb0-bea57f7b8390',
+        target: '_blank',
+        icon: 'tabler:map-pin',
+      },
     ]}
     image={{ src: wideRoom, alt: 'Sala de tratamiento de Dra. Eugenia Vila' }}
   >
     <Fragment slot="title">
-      <span class="text-accent dark:text-white">Sonrisas Perfectas</span> con Más de
+      <span class="text-accent dark:text-white">Sonrisas Perfectas</span> con más de
       <span class="text-accent dark:text-white">30 Años de Experiencia</span>
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="block mb-2">
-        Premiada <span class="font-bold">Dentista del Año</span> por Dental Art Implant Clinics (Londres, Reino Unido)
+        <span class="font-bold">Doctora en Medicina y Odontología</span>, <span class="font-bold">Máster en Implantes y Estética</span>
       </span>
       <span class="block mb-2">
-        Especialista en <span class="font-semibold">implantes dentales, alineadores y odontología estética</span>.
+        Premiada <span class="font-bold">Dentista del Año 2024</span>, Dental Art Implant Clinics
       </span>
       <span class="block">
-        Clínica dental en El Palo, Málaga.
+        Clínica Dental en El Palo, Málaga.
       </span>
     </Fragment>
   </Hero>
@@ -73,7 +78,7 @@ const testimonials = featuredReviews.map(review => ({
       {
         title: 'Implantes Dentales',
         description:
-          'Rehabilitación completa con flujo de trabajo digital (CBCT, 3Shape, Medit). Especialista en colocación de implantes, injertos óseos y elevaciones de seno maxilar.',
+          'Rehabilitación completa con implantes. Especialista en colocación de implantes, injertos óseos y elevaciones de seno maxilar.',
         icon: 'tabler:dental',
       },
       {
@@ -105,8 +110,8 @@ const testimonials = featuredReviews.map(review => ({
   <Stats
     stats={[
       { title: 'Años de Experiencia', amount: '30+' },
-      { title: 'Pacientes Satisfechos', amount: '20,000+' },
-      { title: 'Implantes Colocados', amount: '3,000+' },
+      { title: 'Pacientes Satisfechos', amount: '20K+' },
+      { title: 'Implantes Colocados', amount: '3K+' },
       { title: 'Reseñas 5 Estrellas', amount: '60+' },
     ]}
   />

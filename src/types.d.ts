@@ -159,7 +159,7 @@ export interface Testimonial {
   testimonial?: string;
   name?: string;
   job?: string;
-  image?: string | unknown;
+  image?: string | Image | ImageMetadata;
   rating?: number;
   date?: string;
   source?: string;
@@ -241,7 +241,7 @@ export interface Pricing extends Omit<Headline, "classes">, Widget {
 export interface Testimonials extends Omit<Headline, "classes">, Widget {
   testimonials?: Array<Testimonial>;
   callToAction?: CallToAction;
-  language?: 'es' | 'en';
+  language?: "es" | "en";
 }
 
 export interface Brands extends Omit<Headline, "classes">, Widget {

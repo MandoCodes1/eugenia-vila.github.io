@@ -46,9 +46,38 @@ const {
   position = 'center',
 } = Astro.props;
 
-const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
+const urlPath = new URL(Astro.url).pathname;
+const currentPath = `/${trimSlash(urlPath)}` || '/';
 const currentLang = getLanguageFromURL(Astro.url.pathname);
 const homeLink = currentLang === 'en' ? getPermalink('/en') : getHomePermalink();
+
+// Helper function to normalize paths for comparison
+const normalizePath = (path: string): string => {
+  if (!path) return '/';
+  const trimmed = trimSlash(path);
+  return trimmed ? `/${trimmed}` : '/';
+};
+
+// Helper function to check if a link is active
+const isActiveLink = (href: string | undefined): boolean => {
+  if (!href) return false;
+  
+  const normalizedHref = normalizePath(href);
+  const normalizedCurrentPath = normalizePath(urlPath);
+  
+  // Exact match
+  if (normalizedHref === normalizedCurrentPath) {
+    return true;
+  }
+  
+  // Handle home page edge cases (empty path, root path)
+  if ((normalizedHref === '/' || normalizedHref === '') && 
+      (normalizedCurrentPath === '/' || normalizedCurrentPath === '')) {
+    return true;
+  }
+  
+  return false;
+};
 ---
 
 <header
@@ -107,7 +136,7 @@ const homeLink = currentLang === 'en' ? getPermalink('/en') : getHomePermalink()
                         <a
                           class:list={[
                             'first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap',
-                            { 'aw-link-active': href2 === currentPath },
+                            { 'aw-link-active': isActiveLink(href2) },
                           ]}
                           href={href2}
                         >
@@ -120,8 +149,8 @@ const homeLink = currentLang === 'en' ? getPermalink('/en') : getHomePermalink()
               ) : (
                 <a
                   class:list={[
-                    'hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap',
-                    { 'aw-link-active': href === currentPath },
+                    'hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap relative',
+                    { 'aw-link-active': isActiveLink(href) },
                   ]}
                   href={href}
                 >

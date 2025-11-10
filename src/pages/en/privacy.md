@@ -184,4 +184,3 @@ If you have any questions about this Privacy Policy, You can contact us:
 
 - By email: eugeniavila63@gmail.com
 - By WhatsApp: +34 679 975 580
-

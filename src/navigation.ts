@@ -120,10 +120,8 @@ export const footerData = {
     { ariaLabel: "Facebook", icon: "tabler:brand-facebook", href: "#" },
   ],
   footNote: `
-    <div class="text-sm">
-      <p class="mb-2">Clínica Dental Dra. Eugenia Vila - Más de 30 años de experiencia en Málaga</p>
-      <p class="text-xs text-muted">Registro GDC: 287705 | Clínica abierta fines de semana selectos</p>
-      <p class="mt-2">© ${new Date().getFullYear()} Dra. Eugenia Vila. Todos los derechos reservados.</p>
+    <div class="text-sm text-center">
+      <p>© ${new Date().getFullYear()} Dra. Eugenia Vila. Todos los derechos reservados. Clínica abierta fines de semana selectos.</p>
     </div>
   `,
 };
@@ -174,10 +172,8 @@ export const footerDataEN = {
     { ariaLabel: "Facebook", icon: "tabler:brand-facebook", href: "#" },
   ],
   footNote: `
-    <div class="text-sm">
-      <p class="mb-2">Dr. Eugenia Vila Dental Clinic - Over 30 years of experience in Málaga</p>
-      <p class="text-xs text-muted">GDC Registration: 287705 | Clinic open select weekends</p>
-      <p class="mt-2">© ${new Date().getFullYear()} Dr. Eugenia Vila. All rights reserved.</p>
+    <div class="text-sm text-center">
+      <p>© ${new Date().getFullYear()} Dr. Eugenia Vila. All rights reserved. Clinic open select weekends.</p>
     </div>
   `,
 };

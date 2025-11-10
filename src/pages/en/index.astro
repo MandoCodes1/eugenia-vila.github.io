@@ -41,7 +41,12 @@ const testimonials = featuredReviews.map(review => ({
         target: '_blank',
         icon: 'tabler:brand-whatsapp',
       },
-      { text: 'Learn More', href: '#about' },
+      {
+        text: 'View Location',
+        href: 'https://www.google.com/maps/place/Clinica+Dental+Dra.+Eugenia+Vila/@36.7212568,-4.3611691,16z/data=!3m1!4b1!4m6!3m5!1s0xd7259d6897597c3:0x48544afb3aaf06a4!8m2!3d36.7212568!4d-4.3611691!16s%2Fg%2F11xnngghh?entry=tts&g_ep=EgoyMDI1MTEwNC4xIPu8ASoASAFQAw%3D%3D&skid=c1c51f43-632e-4bfc-bcb0-bea57f7b8390',
+        target: '_blank',
+        icon: 'tabler:map-pin',
+      },
     ]}
     image={{ src: wideRoom, alt: 'Dr. Eugenia Vila treatment room' }}
   >
@@ -52,13 +57,13 @@ const testimonials = featuredReviews.map(review => ({
 
     <Fragment slot="subtitle">
       <span class="block mb-2">
-        Awarded <span class="font-bold">Dentist of the Year</span> by Dental Art Implant Clinics (London, UK)
+        <span class="font-bold">Doctor of Medicine and Dentistry</span>, <span class="font-bold">Master's in Dental Implants and Aesthetics</span>
       </span>
       <span class="block mb-2">
-        Specialist in <span class="font-semibold">dental implants, aligners and cosmetic dentistry</span>.
+        Awarded <span class="font-bold">Dentist of the year 2024</span>, Dental Art Implant Clinics
       </span>
       <span class="block">
-        Dental clinic in El Palo, Málaga.
+        Dental Clinic in El Palo, Málaga.
       </span>
     </Fragment>
   </Hero>
@@ -73,7 +78,7 @@ const testimonials = featuredReviews.map(review => ({
       {
         title: 'Dental Implants',
         description:
-          'Full-mouth rehabilitation with digital workflow (CBCT, 3Shape, Medit). Specialist in implant placement, bone grafting and sinus lift procedures.',
+          'Full-mouth rehabilitation with implants. Specialist in implant placement, bone grafting and sinus lift procedures.',
         icon: 'tabler:dental',
       },
       {
@@ -105,8 +110,8 @@ const testimonials = featuredReviews.map(review => ({
   <Stats
     stats={[
       { title: 'Years of Experience', amount: '30+' },
-      { title: 'Satisfied Patients', amount: '20,000+' },
-      { title: 'Implants Placed', amount: '3,000+' },
+      { title: 'Satisfied Patients', amount: '20K+' },
+      { title: 'Implants Placed', amount: '3K+' },
       { title: '5-Star Reviews', amount: '60+' },
     ]}
   />
